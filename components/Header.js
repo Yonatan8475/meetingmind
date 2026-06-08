@@ -6,6 +6,7 @@ import { checkHealth } from '@/lib/api';
 
 const NAV = [
   { href: '/',          label: '🏠 Dashboard' },
+  { href: '/record',    label: '🎙️ Record' },
   { href: '/process',   label: '⚡ Process' },
   { href: '/tracker',   label: '🔍 Tracker' },
   { href: '/meetings',  label: '📋 Meetings' },
@@ -42,7 +43,7 @@ export default function Header() {
             const active = pathname === href;
             return (
               <Link key={href} href={href} style={{
-                padding: '0 20px',
+                padding: '0 18px',
                 height: '100%',
                 display: 'flex',
                 alignItems: 'center',
@@ -55,6 +56,7 @@ export default function Header() {
                 borderBottom: active ? '3px solid #c8401a' : '3px solid transparent',
                 textDecoration: 'none',
                 transition: 'all 0.2s',
+                whiteSpace: 'nowrap',
               }}>
                 {label}
               </Link>
@@ -71,7 +73,8 @@ export default function Header() {
             fontFamily: 'var(--font-dm-mono)',
             fontSize: 11,
             color: online ? '#1a7a4a' : '#dc2626',
-            marginLeft: 24,
+            marginLeft: 20,
+            whiteSpace: 'nowrap',
           }}>
             <div className="pulse" style={{ width: 6, height: 6, borderRadius: '50%', background: 'currentColor' }} />
             {online ? 'API Live' : 'API Offline'}
